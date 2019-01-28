@@ -1,0 +1,17 @@
+ordinateur
+ecran
+clavier
+souris
+tour
+processeur
+javascript
+jquery
+netbeans
+wampserver
+php
+html
+internet
+navigateur
+serveur
+objet
+programmation

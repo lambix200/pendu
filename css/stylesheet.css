@@ -1,0 +1,32 @@
+#titre {
+    font-size: 6em;
+    text-align: center;
+    color: #491217;
+    text-shadow: 0 0 3px #000000;
+    margin-top: 30px;
+}
+
+#mot {
+    text-align: center;
+    margin-top: 150px;
+    font-size: 5em;
+    letter-spacing: 0.3em;
+}
+
+#formulaire {
+    text-align: center;
+    margin-top: 2em;
+}
+
+#img{
+    margin-top: 20px;
+    text-align: center;
+}
+#reset{
+    background-color: #0000F0;
+    color: white;
+    border-radius: 10px;
+    padding: 15px;
+    position: absolute;
+    margin-left: 5%;
+}
