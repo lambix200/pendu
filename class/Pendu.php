@@ -15,6 +15,7 @@ class Pendu
     private $mot;
     private $cache = array();
     private $nbEssai;
+    private $msg = "";
 
     public function __construct($mot)
     {
@@ -53,17 +54,25 @@ class Pendu
 
     public function check($saisie)
     {
+        $nberreurs=$this->getNbEssai();
         $avant = $this->cache;
         $tab = str_split($this->getMot());
+        $verif = 0;
         foreach ($tab as $key => $lettre)
         {
             if ($lettre === $saisie)
             {
                 $this->cache[$key] = $saisie;
+                $verif += 1;
             }
         }
-        if ($this->cache == $avant){
+        if($this->cache == $avant and $verif == 0){
             $this->setNbEssai($this->getNbEssai()+1);
+        }
+        if ($verif>0 and $this->cache == $avant){
+            $this->setMsg("VOUS AVEZ DEJA TENTE CETTE LETTRE !!! (bouffon...)");
+        }else{
+            $this ->setMsg("");
         }
     }
 
@@ -100,5 +109,22 @@ class Pendu
             return true;
         }
     }
+
+    /**
+     * @return string
+     */
+    public function getMsg(): string
+    {
+        return $this->msg;
+    }
+
+    /**
+     * @param string $msg
+     */
+    public function setMsg(string $msg): void
+    {
+        $this->msg = $msg;
+    }
+
 
 }

@@ -15,3 +15,14 @@ navigateur
 serveur
 objet
 programmation
+cable
+symfony
+emulateur
+logiciel
+ventilateur
+informatique
+bootstrap
+knacss
+bureau
+dossier
+fichier

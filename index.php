@@ -3,7 +3,6 @@ require_once 'class/Pendu.php';
 
 session_start();
 
-$j=rand(0,16);
 $handle = @fopen("mots/motspendu.txt", "r");
 $buffers="";
 if ($handle) {
@@ -18,6 +17,8 @@ if ($handle) {
 
 
 $tab=explode(" ",$buffers);
+$i=count($tab);
+$j=rand(0,$i-1);
 $mot=str_replace(" ","", $tab[$j]);
 $mot=str_replace("\n","", $mot);
 $mot=str_replace("\r","", $mot);
@@ -40,8 +41,6 @@ if(isset($_POST['lettre']) and $_POST['lettre'] != "" and !$jeu->gagner() and !$
 
 if(!$jeu->gagner()){$img = $jeu->getNbEssai();}   else{$img = 0;};
 
-
-
 ?>
 
 <!doctype html>
@@ -62,8 +61,9 @@ if(!$jeu->gagner()){$img = $jeu->getNbEssai();}   else{$img = 0;};
 </head>
 <body>
     <h1 id="titre">JEU DU PENDU</h1>
-    <br/>
+
     <a id="reset" href="?reset">RESET</a>
+    <div id="msg"><p><?php echo $jeu->getMsg();  ?></p></div>
     <form id="formulaire" action="index.php" method="post">
         <input type="text" maxlength="1" id="champ" name="lettre" onkeyup="onlyNumber();" autofocus />
         <input id="envoyer" type="submit" value="Vérifier">
